@@ -21,7 +21,7 @@ const ProfileSchema = new Schema({
     location: {
         type: String
     },
-    status:{
+    status: {
         type: String,
         required: true
     },
@@ -35,33 +35,84 @@ const ProfileSchema = new Schema({
     github: {
         type: String
     },
-    expierence: [
-    { 
+    expierence: [{
         title: {
-        type: String,
-        required: true
+            type: String,
+            required: true
         },
         company: {
             type: String,
             required: true
         },
         location: {
-            type: String,
+            type: String
         },
         from: {
             type: Date,
             required: true
         },
         to: {
-            type: String,
+            type: String
         },
         current: {
             type: Boolean,
             default: false
         },
-        description: 
-    }
-],
+        description: {
+            type: String
+        }
+    }],
+    education: [{
+        school: {
+            type: String,
+            required: true
+        },
+        degree: {
+            type: String,
+            required: true
+        },
+        fieldOfStudy: {
+            type: String,
+            required: true
+        },
+        from: {
+            type: Date,
+            required: true
+        },
+        to: {
+            type: String
+        },
+        current: {
+            type: Boolean,
+            default: false
+        },
+        description: {
+            type: String
+        }
+    }],
+    social: {
+        youtube: {
+            type: String
+        },
+        facebook: {
+            type: String
+        },
+        linkedin: {
+            type: String
+        },
+        github: {
+            type: String
+        },
+        twitter: {
+            type: String
+        }
 
-    
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
+
 });
+
+module.exports = Profile = mongoose.model('profile', ProfileSchema);
